@@ -1,0 +1,1020 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+   border: none;
+   outline: none;
+   scroll-behavior: smooth;
+   font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+:root {
+   --bg-color: #1f242d;
+   --second-bg-color: #323946;
+   --text-color: #fff;
+   --main-color: rgb(106, 226, 235);
+}
+
+html {
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+body {
+   background: var(--bg-color);
+   color: var(--text-color);
+}
+
+a {
+  color: var(--second-bg-color);
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+
+a:hover {
+  color: var(--main-color);
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: var(--main-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.back-to-top i {
+  font-size: 28px;
+  color: #fff;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: rgb(128, 232, 240);
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* header */
+
+#header {
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 20px 0;
+  background: var(--second-bg-color);
+}
+
+#header .logo {
+  font-size: 28px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+#header .logo a {
+  color: #fff;
+}
+
+#header .logo img {
+  max-height: 40px;
+}
+
+#header.header-scrolled {
+  background: var(--bg-color);
+  padding: 12px 0;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.navbar {
+  padding: 0;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar>ul>li {
+  white-space: nowrap;
+  padding: 10px 0 10px 30px;
+}
+
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0;
+  white-space: nowrap;
+  transition: 0.3s;
+  letter-spacing: 0.4px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.navbar a i,
+.navbar a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar>ul>li>a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  background-color: #fff;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.navbar a:hover:before,
+.navbar li:hover>a:before,
+.navbar .active:before {
+  visibility: visible;
+  width: 80%;
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
+  color: #fff;
+}
+
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(78, 78, 78, 0.9);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.navbar-mobile ul {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  padding: 10px 0;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: 0.3s;
+}
+
+.navbar-mobile>ul>li {
+  padding: 0;
+}
+
+.navbar-mobile a:hover:before,
+.navbar-mobile li:hover>a:before,
+.navbar-mobile .active:before {
+  visibility: hidden;
+}
+
+.navbar-mobile a,
+.navbar-mobile a:focus {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #4e4e4e;
+}
+
+.navbar-mobile a:hover,
+.navbar-mobile .active,
+.navbar-mobile li:hover>a {
+  color: var(--main-color);
+}
+
+.navbar-mobile .getstarted,
+.navbar-mobile .getstarted:focus {
+  margin: 15px;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 70vh;
+  margin-top: 70px;
+}
+
+#hero h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: var(--text-color);
+}
+
+#hero h2 {
+  color: var(--text-color);
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+span {
+   color: var(--main-color);
+}
+
+#hero .btn-get-started {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+}
+
+#hero .btn-get-started:hover {
+  background: var(--main-color);
+  color: var(--text-color);
+}
+
+#hero .animated {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@media (min-width: 1024px) {
+  #hero {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 991px) {
+  #hero {
+    height: 100vh;
+  }
+
+  #hero .animated {
+    animation: none;
+  }
+
+  #hero .hero-img {
+    text-align: center;
+  }
+
+  #hero .hero-img img {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    margin-top: 20px;
+  }
+
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+  #hero .hero-img img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  #hero .hero-img img {
+    width: 80%;
+  }
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+#hero .social-links {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+#hero .social-links a {
+  font-size: 24px;
+  display: inline-block;
+  color: var(--text-color);
+  line-height: 1;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+#hero .social-links a:hover {
+  color: var(--main-color);
+}
+
+@media (max-width: 992px) {
+  #hero {
+    text-align: center;
+  }
+
+  #hero h1 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  #hero p {
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 90px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background-color: var(--text-color);
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  color: var(--second-bg-color);
+}
+
+.section-title h2::before,
+.section-title h2::after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background: var(--main-color);
+  display: inline-block;
+}
+
+.section-title h2::before {
+  margin: 0 15px 10px 0;
+}
+
+.section-title h2::after {
+  margin: 0 0 10px 15px;
+}
+
+.section-title p {
+  margin: 15px 0 0 0;
+}
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about .content h3 {
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--text-color);
+}
+
+.about h2 {
+   color: var(--text-color);
+}
+
+.about p {
+   font-size: 15px;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.about .content ul strong {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.about .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: var(--main-color);
+  line-height: 0;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+
+h3 {
+  font-size: 3rem; /* Adjust as needed */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+p.fst-italic {
+  font-style: italic;
+  line-height: 1.6;
+  color: #ffffff; /* Adjust as needed */
+
+}
+/*--------------------------------------------------------------
+# Skills
+--------------------------------------------------------------*/
+/* CSS for the Skills section */
+.skills {
+  background: var(--bg-color);
+  padding: 80px 0;
+}
+
+.skills h2 {
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.skill {
+  margin-bottom: 30px;
+}
+
+.skill .font-weight-bold {
+  margin-bottom: 0;
+}
+
+.skill .progress {
+  height: 10px;
+  border-radius: 5px;
+  background-color: #ddd;
+}
+
+.skill .progress .progress-bar {
+  border-radius: 5px;
+  transition: width 1s ease-in-out;
+}
+h6 {
+  font-size: 2rem; /* Adjust as needed */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/*--------------------------------------------------------------
+# Our Services
+--------------------------------------------------------------*/
+.services .icon-box {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-color);
+  box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.services .icon-box p {
+  font-size: 18px;
+}
+
+.services h2 {
+   color: var(--text-color);
+}
+
+.services .icon-box::before {
+  content: "";
+  position: absolute;
+  background: #aff4e9;
+  right: -60px;
+  top: -40px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  transition: all 0.3s;
+  z-index: -1;
+}
+.services .icon-box:hover::before {
+  background: var(--main-color);
+  
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+}
+
+.services .icon {
+  margin: 0 auto 20px auto;
+  padding-top: 10px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: var(--main-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.services .icon i {
+  font-size: 36px;
+  line-height: 1;
+  color: #fff;
+}
+
+.services .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.services .title a {
+  color: var(--text-color);
+}
+
+.services .description {
+  font-size: 15px;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+
+.services .icon-box:hover .title a,
+.services .icon-box:hover .description {
+  color: #921414;
+}
+
+.services .icon-box:hover .icon {
+  background: var(--text-color);
+}
+
+.services .icon-box:hover .icon i {
+  color: var(--main-color);
+}
+
+/*--------------------------------------------------------------
+# Portfolio
+--------------------------------------------------------------*/
+.portfolio .portfolio-item {
+  margin-bottom: 30px;
+}
+
+.portfolio #portfolio-flters {
+  padding: 0;
+  margin: 0 auto 20px auto;
+  list-style: none;
+  text-align: center;
+}
+
+.portfolio h2 {
+   color: var(--text-color);
+}
+
+.portfolio #portfolio-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 16px 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50px;
+}
+
+.portfolio #portfolio-flters li:hover,
+.portfolio #portfolio-flters li.filter-active {
+  color: #fff;
+  background: var(--main-color);
+}
+
+.portfolio #portfolio-flters li:last-child {
+  margin-right: 0;
+}
+
+.portfolio .portfolio-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: rgba(34, 34, 34, 0.6);
+}
+
+.portfolio .portfolio-wrap::before {
+  content: "";
+  background: rgba(34, 34, 34, 0.6);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+
+.portfolio .portfolio-wrap img {
+  transition: all ease-in-out 0.3s;
+}
+
+.portfolio .portfolio-wrap .portfolio-info {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.portfolio .portfolio-wrap .portfolio-info h4 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.portfolio .portfolio-wrap .portfolio-info p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+}
+
+.portfolio .portfolio-wrap .portfolio-links {
+  text-align: center;
+  z-index: 4;
+}
+
+.portfolio .portfolio-wrap .portfolio-links a {
+  color: #fff;
+  margin: 0 5px 0 0;
+  font-size: 28px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.portfolio .portfolio-wrap .portfolio-links a:hover {
+  color: #78d9cd;
+}
+
+.portfolio .portfolio-wrap:hover::before {
+  opacity: 1;
+}
+
+.portfolio .portfolio-wrap:hover img {
+  transform: scale(1.2);
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-info {
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Portfolio Details
+--------------------------------------------------------------*/
+.portfolio-details {
+  padding-top: 0;
+}
+
+.portfolio-details .portfolio-details-slider img {
+  width: 100%;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  opacity: 1;
+  border: 1px solid #34b7a7;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #34b7a7;
+}
+
+.portfolio-details .portfolio-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(34, 34, 34, 0.08);
+}
+
+.portfolio-details .portfolio-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.portfolio-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.portfolio-details .portfolio-info ul li+li {
+  margin-top: 10px;
+}
+
+.portfolio-details .portfolio-description {
+  padding-top: 30px;
+}
+
+.portfolio-details .portfolio-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-description p {
+  padding: 0;
+}
+
+/*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+.contact .info-box {
+  color: var(--text-color);
+  padding: 20px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.contact h2 {
+   color: var(--text-color);
+}
+
+.contact .info-box i.bx {
+  font-size: 24px;
+  color:  var(--main-color);
+  border-radius: 50%;
+  padding: 14px;
+  float: left;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.contact .info-box h3 {
+  font-size: 20px;
+  color: var(--text-color);
+  font-weight: 700;
+  margin: 10px 0 8px 68px;
+}
+
+.contact .info-box p {
+  padding: 0;
+  color: var(--text-color);
+  line-height: 24px;
+  font-size: 14px;
+  margin: 0 0 0 68px;
+}
+
+.contact .info-box .social-links {
+  margin: 5px 0 0 68px;
+  display: flex;
+}
+
+.contact .info-box .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  color: var(--text-color);
+  line-height: 1;
+  margin-right: 12px;
+  transition: 0.3s;
+}
+
+.contact .info-box .social-links a:hover {
+  color: var(--main-color);
+}
+
+.contact .php-email-form {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.contact .php-email-form .error-message {
+  display: none;
+  background: rgba(255, 255, 255, 0.08);
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.contact .php-email-form .sent-message {
+  display: none;
+  background: rgba(255, 255, 255, 0.08);
+  background: var(--main-color);
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .loading {
+  display: none;
+  background: rgba(255, 255, 255, 0.08);
+  text-align: center;
+  padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--main-color);
+  border-top-color: var(--text-color);
+  animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0;
+  transition: 0.3s;
+  color: var(--text-color);
+}
+
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
+  background-color: rgba(255, 255, 255, 0.11);
+}
+
+.contact .php-email-form input::-moz-placeholder,
+.contact .php-email-form textarea::-moz-placeholder {
+  color: var(--text-color);
+  opacity: 1;
+}
+
+.contact .php-email-form input::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: var(--text-color);
+  opacity: 1;
+}
+
+.contact .php-email-form input {
+  padding: 10px 15px;
+}
+
+.contact .php-email-form textarea {
+  padding: 12px 15px;
+}
+
+.contact .php-email-form button[type=submit] {
+  background: var(--second-bg-color);
+  border: 0;
+  padding: 10px 30px;
+  border: 1px solid var(--main-color);
+  color: var(--text-color);
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  background: var(--main-color);
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: var(--second-bg-color);
+  color: var(--text-color);
+  font-size: 15px;
+  text-align: center;
+  padding: 30px 0;
+}
+
+#footer .copyright {
+  margin: 0 0 5px 0;
+}
+
+#footer .credits {
+  font-size: 13px;
+}
+
+#footer a {
+   color: var(--text-color);
+}
+
+#footer a:hover {
+   color: var(--main-color);
+}
