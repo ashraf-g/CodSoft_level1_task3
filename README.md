@@ -10,6 +10,6 @@ This is the Portfolio for CodSoft's 3rd task, showcasing the use of HTML, CSS, a
 
 ## Getting Started
 
-To view the landing page click on link [CodSoft 2nd task Calculator]().
+To view the landing page click on link [CodSoft 3d task Portfolio](https://ashraf-g.github.io/CodSoft_level1_task3/).
 
 ---
